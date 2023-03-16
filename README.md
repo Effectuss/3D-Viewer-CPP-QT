@@ -5,26 +5,26 @@ The 3DViewer v2.0 is a modern app written C++. The application provides viewing 
 - Load a wireframe model from an obj file.
 - Translate the model by a given distance in relation to the X, Y, Z axes.
 
-  ![Translation Screecast](./docs/Motion.gif)
+  ![Translation Screecast](./src/docs/Motion.gif)
 
 - Rotate the model by a given angle relative to its X, Y, Z axes.
 - Scale the model by a given value.
 
-  ![Rotation Screecast](./docs/Rotation.gif)
+  ![Rotation Screecast](./src/docs/Rotation.gif)
 
 - Customizing the type of projection (parallel and central).
 - Setting up the type (solid, dashed), color and thickness of the edges, display method (none, circle, square), color and size of the vertices.
 - Choosing the background color.
 
-  ![Default Screeshot](./docs/Default.png)
+  ![Default Screeshot](./src/docs/Default.png)
 
 - Saving settings between program restarts.
 
-  ![Custom Screeshot](./docs/Custom.png)
+  ![Custom Screeshot](./src/docs/Custom.png)
 
 - Display grid and axes.
 
-  ![Grid Screecast](./docs/Grid_and_axis.gif)
+  ![Grid Screecast](./src/docs/Grid_and_axis.gif)
 
 - Saving the captured (rendered) images as bmp and jpeg files.
 - Recording small screencasts by a special button - the current custom affine transformation of the loaded object into gif-animation.
