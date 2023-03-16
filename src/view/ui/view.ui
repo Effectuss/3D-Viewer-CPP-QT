@@ -1,0 +1,2413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>View</class>
+ <widget class="QMainWindow" name="View">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>915</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>915</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1145</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainViewer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(32, 32, 32);</string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="GlView" name="glWindow">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>711</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_file">
+    <property name="geometry">
+     <rect>
+      <x>799</x>
+      <y>10</y>
+      <width>101</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: None;
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(54, 62, 63);
+</string>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="load_file">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>107</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+    </property>
+    <property name="text">
+     <string>LOAD .obj FILE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>138</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 15px;</string>
+    </property>
+    <property name="text">
+     <string>MOVING</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="translate">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>258</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+    </property>
+    <property name="text">
+     <string>MOVE</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_move_x">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>179</y>
+      <width>130</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal { 
+	background-color: rgb(50, 50, 50);
+	border: 0px solid #505050; 
+	height: 3px; 
+	border-radius: 1px;
+}
+
+QSlider::handle:horizontal { 
+	background-color: rgb(76, 194, 255); 
+	border: 2px solid rgb(76, 194, 255); 
+	width: 8px; 
+	height: 8px; 
+	line-height: 8px; 
+	margin-top: -5px; 
+	margin-bottom: -5px; 
+	border-radius: 3px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 3px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-1000</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_move_y">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>203</y>
+      <width>130</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal { 
+	background-color: rgb(50, 50, 50);
+	border: 0px solid #505050; 
+	height: 3px; 
+	border-radius: 1px;
+}
+
+QSlider::handle:horizontal { 
+	background-color: rgb(76, 194, 255); 
+	border: 2px solid rgb(76, 194, 255); 
+	width: 8px; 
+	height: 8px; 
+	line-height: 8px; 
+	margin-top: -5px; 
+	margin-bottom: -5px; 
+	border-radius: 3px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 3px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-1000</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_move_z">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>228</y>
+      <width>130</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal { 
+	background-color: rgb(50, 50, 50);
+	border: 0px solid #505050; 
+	height: 3px; 
+	border-radius: 1px;
+}
+
+QSlider::handle:horizontal { 
+	background-color: rgb(76, 194, 255); 
+	border: 2px solid rgb(76, 194, 255); 
+	width: 8px; 
+	height: 8px; 
+	line-height: 8px; 
+	margin-top: -5px; 
+	margin-bottom: -5px; 
+	border-radius: 3px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 3px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-1000</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>286</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 15px;</string>
+    </property>
+    <property name="text">
+     <string>ROTATION</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_rot_z">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>374</y>
+      <width>130</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal { 
+	background-color: rgb(50, 50, 50);
+	border: 0px solid #505050; 
+	height: 3px; 
+	border-radius: 1px;
+}
+
+QSlider::handle:horizontal { 
+	background-color: rgb(76, 194, 255); 
+	border: 2px solid rgb(76, 194, 255); 
+	width: 8px; 
+	height: 8px; 
+	line-height: 8px; 
+	margin-top: -5px; 
+	margin-bottom: -5px; 
+	border-radius: 3px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 3px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-360</number>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_rot_y">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>349</y>
+      <width>130</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal { 
+	background-color: rgb(50, 50, 50);
+	border: 0px solid #505050; 
+	height: 3px; 
+	border-radius: 1px;
+}
+
+QSlider::handle:horizontal { 
+	background-color: rgb(76, 194, 255); 
+	border: 2px solid rgb(76, 194, 255); 
+	width: 8px; 
+	height: 8px; 
+	line-height: 8px; 
+	margin-top: -5px; 
+	margin-bottom: -5px; 
+	border-radius: 3px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 3px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-360</number>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rotate">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>404</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+    </property>
+    <property name="text">
+     <string>ROTATE</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_rot_x">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>325</y>
+      <width>130</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal { 
+	background-color: rgb(50, 50, 50);
+	border: 0px solid #505050; 
+	height: 3px; 
+	border-radius: 1px;
+}
+
+QSlider::handle:horizontal { 
+	background-color: rgb(76, 194, 255); 
+	border: 2px solid rgb(76, 194, 255); 
+	width: 8px; 
+	height: 8px; 
+	line-height: 8px; 
+	margin-top: -5px; 
+	margin-bottom: -5px; 
+	border-radius: 3px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 3px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-360</number>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>430</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 15px;</string>
+    </property>
+    <property name="text">
+     <string>SCALING</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_scale">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>470</y>
+      <width>130</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal { 
+	background-color: rgb(50, 50, 50);
+	border: 0px solid #505050; 
+	height: 3px; 
+	border-radius: 1px;
+}
+
+QSlider::handle:horizontal { 
+	background-color: rgb(76, 194, 255); 
+	border: 2px solid rgb(76, 194, 255); 
+	width: 8px; 
+	height: 8px; 
+	line-height: 8px; 
+	margin-top: -5px; 
+	margin-bottom: -5px; 
+	border-radius: 3px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 3px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-100</number>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
+    </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="sliderPosition">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="scale">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>506</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+    </property>
+    <property name="text">
+     <string>SCALE</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_move_x">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>179</y>
+      <width>55</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <number>-1000</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_move_y">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>204</y>
+      <width>55</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <number>-1000</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_move_z">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>229</y>
+      <width>55</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <number>-1000</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_rot_z">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>374</y>
+      <width>55</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <number>-360</number>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_rot_y">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>349</y>
+      <width>55</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <number>-360</number>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_rot_x">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>324</y>
+      <width>55</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <number>-360</number>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_scale">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>470</y>
+      <width>55</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <number>-100</number>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+    <property name="displayIntegerBase">
+     <number>10</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>10</y>
+      <width>81</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: None;
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Model</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>40</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: None;
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Vertices</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cnt_vertices">
+    <property name="geometry">
+     <rect>
+      <x>799</x>
+      <y>40</y>
+      <width>101</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: None;
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(54, 62, 63);
+</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>70</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: None;
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Edges</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cnt_edges">
+    <property name="geometry">
+     <rect>
+      <x>799</x>
+      <y>70</y>
+      <width>101</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: None;
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(54, 62, 63);
+</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="settings">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>20</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: None;
+font-size: 25px;
+border-radius: 5px;
+}
+QPushButton:hover{
+background-color: rgb(59, 59, 59);
+font-size: 23px;
+border-radius: 5px;}
+QPushButton:pressed{
+background-color: rgb(50, 50, 50);
+font-size: 20px;
+border-radius: 5px;}
+</string>
+    </property>
+    <property name="text">
+     <string>⚙</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="screenshot">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>70</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: None;
+font-size: 25px;
+border-radius: 5px;
+}
+QPushButton:hover{
+background-color: rgb(59, 59, 59);
+font-size: 23px;
+border-radius: 5px;}
+QPushButton:pressed{
+background-color: rgb(50, 50, 50);
+font-size: 20px;
+border-radius: 5px;}
+</string>
+    </property>
+    <property name="text">
+     <string>📷</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gif">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>130</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: None;
+font-size: 25px;
+border-radius: 5px;
+}
+QPushButton:hover{
+background-color: rgb(59, 59, 59);
+font-size: 23px;
+border-radius: 5px;}
+QPushButton:pressed{
+background-color: rgb(50, 50, 50);
+font-size: 20px;
+border-radius: 5px;}</string>
+    </property>
+    <property name="text">
+     <string>🎥</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reset_pos">
+    <property name="geometry">
+     <rect>
+      <x>823</x>
+      <y>542</y>
+      <width>80</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+    </property>
+    <property name="text">
+     <string>RESET
+POSITION</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="err_display">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>550</y>
+      <width>541</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: None;
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(54, 62, 63);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="save_pos">
+    <property name="geometry">
+     <rect>
+      <x>722</x>
+      <y>542</y>
+      <width>80</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+    </property>
+    <property name="text">
+     <string>SAVE
+POSITION</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>0</y>
+      <width>200</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="label_1">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>4</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 15px;</string>
+     </property>
+     <property name="text">
+      <string>SET VERTICES</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="bg_color_r">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>378</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="edge_width_decr">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>230</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="edge_type">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>199</y>
+       <width>148</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Solid</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dashed</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>74</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>  Size</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="vertex_size_incr">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="bg_color_b">
+     <property name="geometry">
+      <rect>
+       <x>125</x>
+       <y>378</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_color_g">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>110</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="edge_color">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>261</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font: bold;
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font: bold;
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Color</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="vertex_shape">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>49</y>
+       <width>148</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);
+</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Circle</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Square</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QSpinBox" name="edge_color_g">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>261</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>441</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>Projection type</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="edge_width">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>230</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>10</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="set_default">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>509</y>
+       <width>200</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>DEFAULT</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_size">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>80</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>10</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>44</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>  Shape</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="set_apply">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>563</y>
+       <width>200</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>APPLY</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>300</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>GRID AND AXIS</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="projection_type">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>474</y>
+       <width>150</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);
+</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Parallel</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Central</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>224</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>  Width</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="vertex_color">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>110</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font: bold;
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font: bold;
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Color</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="bg_color">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>407</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 15px;
+font: bold;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font: bold;
+font-size: 16px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font: bold;
+font-size: 14px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Background color</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>191</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>  Type</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_color_b">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>110</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="edge_color_r">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>261</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="bg_color_g">
+     <property name="geometry">
+      <rect>
+       <x>75</x>
+       <y>378</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="set_cancel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>536</y>
+       <width>200</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>CANCEL</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="edge_width_incr">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>230</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="grid_on">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>334</y>
+       <width>70</width>
+       <height>19</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QRadioButton {
+background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;
+border-radius: 0px;
+}
+
+QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 7px;
+}
+
+QRadioButton::indicator:checked {
+   background-color: rgb(76, 194, 255);
+   border: 2px solid rgb(76, 194, 255);
+}
+
+QRadioButton::indicator:unchecked {
+   background-color:  rgb(32, 32, 32);
+   border:  2px solid rgb(76, 194, 255);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>ON</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="vertex_size_decr">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>80</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+background-color: rgb(76, 194, 255);
+color: rgb(21, 54, 71);
+font-size: 14px;
+border-radius: 1px;
+}
+QPushButton:hover{
+background-color: rgb(71, 177, 233);
+color: rgb(21, 54, 71);
+font-size: 15px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 162, 213);
+color: rgb(21, 54, 71);
+font-size: 13px;
+}</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="grid_off">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>334</y>
+       <width>70</width>
+       <height>19</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QRadioButton {
+background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 14px;
+border-radius: 0px;
+}
+
+QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 7px;
+}
+
+QRadioButton::indicator:checked {
+   background-color: rgb(76, 194, 255);
+   border: 2px solid rgb(76, 194, 255);
+}
+
+QRadioButton::indicator:unchecked {
+   background-color:  rgb(32, 32, 32);
+   border:  2px solid rgb(76, 194, 255);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>OFF</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>154</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);
+font-size: 15px;</string>
+     </property>
+     <property name="text">
+      <string>SET EDGES</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_color_r">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>110</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="edge_color_b">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>261</y>
+       <width>48</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+font-size: 12px;
+border-radius: 3px;
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(32, 32, 32);</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>255</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GlView</class>
+   <extends>QOpenGLWidget</extends>
+   <header>view/glview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

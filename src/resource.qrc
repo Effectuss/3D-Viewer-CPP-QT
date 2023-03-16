@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>object/Boeing.obj</file>
+        <file>object/Cube.obj</file>
+        <file>object/Koenigsegg.obj</file>
+        <file>object/Sphere.obj</file>
+        <file>object/Torus.obj</file>
+        <file>common/3d.icns</file>
+    </qresource>
+</RCC>
